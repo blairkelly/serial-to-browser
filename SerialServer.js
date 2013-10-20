@@ -26,6 +26,7 @@ var serialport = require("serialport"),     // include the serialport library
     serialData = {},                    // object to hold what goes out to the client
     portName = process.argv[2];           // third word of the command line should be serial port name
 
+io.set('log level', 1);
 server.listen(8080);                    // listen for incoming requests on the server
 
 console.log("Listening for new clients on port 8080");
