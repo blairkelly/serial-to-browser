@@ -32,13 +32,29 @@ console.log("Listening for new clients on port 8080");
 
 // open the serial port. Change the name to the name of your port, just like in Processing and Arduino:
 var myPort = new SerialPort(portName, { 
+  baudrate: 57600,
   // look for return and newline at the end of each data packet:
   parser: serialport.parsers.readline("\r\n") 
 });
-  
+
 // respond to web GET requests with the index.html page:
 app.get('/', function (request, response) {
   response.sendfile(__dirname + '/index.html');
+});
+app.get('/style.css', function (request, response) {
+  response.sendfile(__dirname + '/style.css');
+});
+app.get('/d3.v3.min.js', function (request, response) {
+  response.sendfile(__dirname + '/d3.v3.min.js');
+});
+app.get('/jquery-2.0.3.min.js', function (request, response) {
+  response.sendfile(__dirname + '/jquery-2.0.3.min.js');
+});
+app.get('/scripts.js', function (request, response) {
+  response.sendfile(__dirname + '/scripts.js');
+});
+app.get('/jquery-2.0.3.min.map', function (request, response) {
+  response.sendfile(__dirname + '/jquery-2.0.3.min.map');
 });
 
 // listen for new socket.io connections:
