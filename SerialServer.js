@@ -45,18 +45,25 @@ app.get('/', function (request, response) {
 app.get('/style.css', function (request, response) {
   response.sendfile(__dirname + '/style.css');
 });
-app.get('/d3.v3.min.js', function (request, response) {
-  response.sendfile(__dirname + '/d3.v3.min.js');
-});
 app.get('/jquery-2.0.3.min.js', function (request, response) {
   response.sendfile(__dirname + '/jquery-2.0.3.min.js');
-});
-app.get('/scripts.js', function (request, response) {
-  response.sendfile(__dirname + '/scripts.js');
 });
 app.get('/jquery-2.0.3.min.map', function (request, response) {
   response.sendfile(__dirname + '/jquery-2.0.3.min.map');
 });
+app.get('/d3.v3.min.js', function (request, response) {
+  response.sendfile(__dirname + '/d3.v3.min.js');
+});
+app.get('/iopctrl.js', function (request, response) {
+  response.sendfile(__dirname + '/iopctrl.js');
+});
+app.get('/graphscripts.js', function (request, response) {
+  response.sendfile(__dirname + '/graphscripts.js');
+});
+app.get('/scripts.js', function (request, response) {
+  response.sendfile(__dirname + '/scripts.js');
+});
+
 
 // listen for new socket.io connections:
 io.sockets.on('connection', function (socket) {

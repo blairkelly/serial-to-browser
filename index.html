@@ -2,17 +2,26 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+
         <script src="/socket.io/socket.io.js"></script>
-        <script src="d3.v3.min.js"></script>
         <script src="jquery-2.0.3.min.js"></script>
+        <script src="d3.v3.min.js"></script>
+        <script type="text/javascript" src="iopctrl.js"></script>
+
     </head>
     <body>
+        <div class="recording">RECORDING</div>
         <div class="contents">
-            <div class="textDisplay">
-                Text will show HMYEEAA
+            <div class="textdisplay">
+                Text will show HUERK
             </div>
+            <div class="speedometerholder">
+                <span id="speedometer"></span>
+            </div>
+            <div id="graph" class="aGraph" style=""></div>
         </div>
     </body>
 </html>
 
+<script type="text/javascript" src="graphscripts.js"></script>
 <script src="scripts.js"></script>
