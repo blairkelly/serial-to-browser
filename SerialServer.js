@@ -23,8 +23,10 @@ var serialport = require("serialport"),     // include the serialport library
   app = require('express')(),           // start Express framework
     server = require('http').createServer(app), // start an HTTP server
     io = require('socket.io').listen(server),   // filter the server using socket.io
-    serialData = {},                    // object to hold what goes out to the client
-    portName = process.argv[2];           // third word of the command line should be serial port name
+    serialData = {};                    // object to hold what goes out to the client
+    
+//var portName = process.argv[2];           // third word of the command line should be serial port name
+var portName = "/dev/tty.usbmodem1411";      // specific
 
 io.set('log level', 1);
 server.listen(8080);                    // listen for incoming requests on the server
@@ -64,10 +66,10 @@ app.get('/scripts.js', function (request, response) {
   response.sendfile(__dirname + '/scripts.js');
 });
 
-
 // listen for new socket.io connections:
 io.sockets.on('connection', function (socket) {
-  // if there's a socket client, listen for new serial data:  
+  console.log('someone connected');
+  // if there's a socket client, listen for new serial data:
   myPort.on('data', function (data) {
     // set the value property of scores to the serial string:
     serialData.value = data;
