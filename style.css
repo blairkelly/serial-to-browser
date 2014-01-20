@@ -1,105 +1,37 @@
-body {background: #FFF;}
+body {background: rgba(50,50,50,1); color: rgba(255, 255, 255, 1);}
 p {
 	clear:both;
-	top: 20px;
 }		
-div.aGraph {
-	margin-bottom: 30px;
-}
 
 
-.contents {position: relative; padding: 60px 20px 0 20px; font-family: Arial; height: 50px;}
+.contents {font-family: Helvetica, Arial; font-size: 12px;}
 .hidden {display: none;}
-.recording {position: absolute; top: -50px; left: 0; width: 100%; padding: 15px; background: #A00; color: #fff; font-weight: bold; text-align: center; -webkit-transition: top 0.200s ease-in-out;}
-.recording.visible {top: 0px;}
-.textdisplay {position: absolute; top: 60px; right: 0px; width: 234px;}
 
-
-
-/*SPEEDOMETER STYLES*/
-.speedometerholder {
-    font: 16px arial;
-    background-color: #515151;
-    display:inline-block;
+.textdisplay {
+    position: relative;
+    font-size: 66px; 
+    font-weight: bold;
+    width: 98%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
 }
-.unselectable {
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.textgradient {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    background-image: -webkit-gradient(
+        linear, 
+        right top, 
+        left top,
+        from(rgba(50,50,50,1)),
+        to(rgba(0,0,0,0)));
 }
-
-/* css formats for the gauge */
-.gauge .domain {
-    stroke-width: 2px;
-    stroke: #fff;
+.textdisplay span {
+    margin-left: -500px; /*default*/
 }
-
-.gauge .tick line {
-    stroke: #fff;
-    stroke-width: 2px;
-}
-
-.gauge line {
-    stroke: #fff;
-}
-
-.gauge .arc, .gauge .cursor {
-    opacity: 0;
-}
-
-.gauge .major {
-    fill: #fff;
-    font-size: 20px;
-    font-family: 'Play', verdana, sans-serif;
-    font-weight: normal;
-}
-
-.gauge .indicator {
-    stroke: #EE3311;
-    fill: #000;
-    stroke-width: 4px;
-}
-
-/* css formats for the segment display */
-.segdisplay .on {
-    fill: #00FFFF;
-
-}
-
-.segdisplay .off {
-    fill: #00FFFF;
-    opacity: 0.15;
-}
-
-
-/*LINE CHART*/
-
-/* tell the SVG path to be a thin blue line without any area fill */
-#graph path {
-	stroke: steelblue;
-	stroke-width: 1;
-	fill: none;
-}
-
-#graph .axis {
-  shape-rendering: crispEdges;
-}
-
-#graph .x.axis line {
-  stroke: lightgrey;
-}
-
-#graph .x.axis .minor {
-  stroke-opacity: .5;
-}
-
-#graph .x.axis path {
-  display: none;
-}
-
-#graph .y.axis line, .y.axis path {
-  fill: none;
-  stroke: #000;
+.textdisplay span.title {
+    margin-left: 0;
 }

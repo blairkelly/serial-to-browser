@@ -26,7 +26,8 @@ var serialport = require("serialport"),     // include the serialport library
     serialData = {};                    // object to hold what goes out to the client
     
 //var portName = process.argv[2];           // third word of the command line should be serial port name
-var portName = "/dev/tty.usbmodem1411";      // specific
+//var portName = "/dev/tty.usbmodem1411";      // specific
+var portName = "/dev/cu.usbserial-A4013EXK"; //xbee xplorer usb mac.
 
 io.set('log level', 1);
 server.listen(8080);                    // listen for incoming requests on the server
@@ -52,15 +53,6 @@ app.get('/jquery-2.0.3.min.js', function (request, response) {
 });
 app.get('/jquery-2.0.3.min.map', function (request, response) {
   response.sendfile(__dirname + '/jquery-2.0.3.min.map');
-});
-app.get('/d3.v3.min.js', function (request, response) {
-  response.sendfile(__dirname + '/d3.v3.min.js');
-});
-app.get('/iopctrl.js', function (request, response) {
-  response.sendfile(__dirname + '/iopctrl.js');
-});
-app.get('/graphscripts.js', function (request, response) {
-  response.sendfile(__dirname + '/graphscripts.js');
 });
 app.get('/scripts.js', function (request, response) {
   response.sendfile(__dirname + '/scripts.js');
