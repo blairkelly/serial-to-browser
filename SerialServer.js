@@ -28,7 +28,9 @@ var serialport = require("serialport"),     // include the serialport library
     
 //var portName = process.argv[2];           // third word of the command line should be serial port name
 //var portName = "/dev/tty.usbmodem1411";      // specific
-var portName = "/dev/cu.usbserial-A4013EXK"; //xbee xplorer usb mac.
+//var portName = "/dev/cu.usbserial-A4013EXK"; //xbee xplorer usb mac.
+var portName = "/dev/ttyUSB0"; //lower port on Raspi, Xbee Xlplorer
+//var portName = "usb-FTDI_FT232R_USB_UART_A4013EXK-if00-port0"; //xbee xplorer on Raspi, test. Global?
 
 io.set('log level', 1);
 server.listen(8080);                    // listen for incoming requests on the server
