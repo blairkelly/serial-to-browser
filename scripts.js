@@ -5,6 +5,8 @@ var serverport = locationport;
 var socket = io.connect('//'+serverip+':'+serverport);
 //var socket = io.connect('http://localhost:8080');
 
+var recording = $('.recording');
+
 $(document).ready(function () {
 	var hrdisplay = $('.textdisplay');
 	hrdisplay.css('height', hrdisplay.height() + 'px');
@@ -40,6 +42,15 @@ $(document).ready(function () {
 			var lastspan = spans.eq(spans.length - 1);
 			if(lastspan.position().left > hrdisplay.width()) {
 				lastspan.remove();
+			}
+
+			var hr_threshold = 75;
+			if(params.h >= hr_threshold && !recording.hasClass('showing')) {
+				recording.addClass('showing');
+				socket.emit('record', 'start');
+			} else if (params.h < hr_threshold && recording.hasClass('showing')) {
+				recording.removeClass('showing');
+				socket.emit('record', 'stop');
 			}
 		}
 	});

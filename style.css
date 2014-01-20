@@ -35,3 +35,20 @@ p {
 .textdisplay span.title {
     margin-left: 0;
 }
+
+.recordingholder {
+    text-align: center;
+    padding-top: 12px;
+}
+.recording {
+    font-size: 30px;
+    padding: 15px 20px;
+    font-weight: bold;
+    background: rgba(200, 25, 25, .75);
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: opacity .5s ease-in-out;
+}
+.recording.showing {
+    opacity: 1;
+}

@@ -17,6 +17,7 @@
 
 */
 
+var request = require('request');
 
 var serialport = require("serialport"),     // include the serialport library
   SerialPort  = serialport.SerialPort,      // make a local instance of serial
@@ -66,8 +67,28 @@ io.sockets.on('connection', function (socket) {
     // set the value property of scores to the serial string:
     serialData.value = data;
     // for debugging, you should see this in Terminal:
-    console.log(data);
+    //console.log(data);
     // send a serial event to the web client with the data:
     socket.emit('serialEvent', serialData);
   });
+
+
+
+  socket.on('record', function(instruction) {
+    console.log(instruction + " recording.");
+    if(instruction == "start") {
+      request('http://10.5.5.9/bacpac/SH?t=blairpro2&p=%01', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          console.log("camera started");
+        }
+      });
+    } else if (instruction == "stop") {
+      request('http://10.5.5.9/bacpac/SH?t=blairpro2&p=%00', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          console.log("camera stopped");
+        }
+      });
+    }
+  });
+
 });
