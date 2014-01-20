@@ -22,13 +22,13 @@ $(document).ready(function () {
 			var newestHR = hrdisplay.find('span:first-child');
 			var nhr_ml = newestHR.width() * -1;
 			newestHR.css('margin-left', nhr_ml + 'px');
-			var hr_diff = params.h - 80;
+			var hr_diff = params.h - 70;
 			var rgbval = 255;
 			if(hr_diff > 0) {
-				hr_diff = hr_diff / 90;
-				rgbval = 255 - (190 * hr_diff);
-				if(rgbval < 65) {
-					rgbval = 65;
+				hr_diff = hr_diff / 100;
+				rgbval = 255 - (200 * hr_diff);
+				if(rgbval < 55) {
+					rgbval = 55;
 				}
 			}
 			var thecolor = 'rgba(255,'+rgbval+','+rgbval+',1)';
@@ -44,7 +44,7 @@ $(document).ready(function () {
 				lastspan.remove();
 			}
 
-			var hr_threshold = 75;
+			var hr_threshold = 105;
 			if(params.h >= hr_threshold && !recording.hasClass('showing')) {
 				recording.addClass('showing');
 				socket.emit('record', 'start');
